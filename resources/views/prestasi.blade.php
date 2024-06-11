@@ -4,7 +4,7 @@
 <div class="container-fluid bg-primary mb-5">
     <div
       class="d-flex flex-column align-items-center justify-content-center"
-      style="min-height: 400px"
+      style="min-height: 240px"
     >
       <h3 class="display-3 font-weight-bold text-white"style="font-family: Bookman Old Style">Prestasi</h3>
       <div class="d-inline-flex text-white">

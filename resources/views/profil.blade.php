@@ -5,8 +5,7 @@
 <div class="container-fluid bg-primary mb-5">
     <div
       class="d-flex flex-column align-items-center justify-content-center"
-      style="min-height: 400px"
-    >
+      style="min-height: 240px" >
       <h3 class="display-3 font-weight-bold text-white" style="font-family: Bookman Old Style">Profil</h3>
       <div class="d-inline-flex text-white">
         <p class="m-0"><a class="text-white" href="/">Beranda</a></p>
@@ -112,21 +111,13 @@
             </div>
           </div>
           <div class="timeline-item">
-            <div class="timeline-icon">
-              <i class="fas fa-bullseye"></i>
-            </div>
-            <div class="timeline-content">
-              <h4 style="font-family: Berlin Sans FB Demi">Tujuan dan Misi</h4>
-              <p>Tujuan utama dari pembentukan lembaga ini adalah untuk menyediakan pendidikan yang berkualitas bagi masyarakat, dengan misi untuk meningkatkan taraf pendidikan dan memberikan kontribusi positif terhadap pembangunan sumber daya manusia di wilayah tersebut.</p>
-            </div>
-          </div>
           <div class="timeline-item">
             <div class="timeline-icon">
               <i class="fas fa-chart-line"></i>
             </div>
             <div class="timeline-content">
               <h4 style="font-family: Berlin Sans FB Demi">Perkembangan dan Adaptasi</h4>
-              <p>Dengan berjalannya waktu, Lembaga Pendidikan Mutiara Balige terus berkembang dan beradaptasi sesuai dengan perkembangan zaman, tetap berpegang teguh pada nilai-nilai dan visi yang telah ditetapkan sejak awal pendiriannya.</p>
+              <p>Dengan berjalannya waktu, Lembaga Pendidikan Mutiara Balige terus berkembang dan beradaptasi sesuai dengan perkembangan zaman, tetap berpegang teguh pada nilai-nilai dan visi yang telah ditetapkan sejak awal pendiriannya. Komitmen terhadap pendidikan berkualitas diwujudkan melalui peningkatan kurikulum yang selaras dengan standar internasional dan metode pengajaran yang inovatif. Integrasi teknologi dalam pembelajaran, seperti penggunaan smartboard dan pembelajaran jarak jauh, memastikan siswa tetap mendapatkan pendidikan terbaik.</p>
             </div>
           </div>
         </div>
@@ -138,46 +129,60 @@
 
 
   {{-- akreditasi start --}}
-<section id="akreditasi">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <h2 class="mb-4" style="font-family: Berlin Sans FB Demi">Akreditasi TK Mutiara Balige</h2>
-        <p class="text-muted">TK Mutiara Balige memiliki akreditasi <span class="badge badge-success">Grade B</span> dengan nilai <span class="badge badge-primary">560</span> (akreditasi tahun 2018) dari BAN-S/M (Badan Akreditasi Nasional) Sekolah/Madrasah.</p>
-      </div>
-      <div class="col-md-6">
-        <SPAN>Nilai Standar Isi</SPAN>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 121%;" aria-valuenow="12.1" aria-valuemin="0" aria-valuemax="100">121/100</div>
+  <section id="akreditasi">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h2 class="mb-4" style="font-family: Berlin Sans FB Demi">Akreditasi TK Mutiara Balige</h2>
+          <p class="text-muted text-justify">
+            TK Mutiara Balige dengan bangga mengumumkan bahwa Sekolah ini telah meraih akreditasi dengan predikat <span class="badge badge-success">Grade B</span>,
+            yang diberikan oleh BAN-S/M (Badan Akreditasi Nasional Sekolah/Madrasah). 
+            Pencapaian ini diperoleh dengan nilai <span class="badge badge-primary">560</span> 
+            (akreditasi tahun 2018).
+            yang merupakan hasil dari kerja keras dan dedikasi seluruh tim pengajar
+            dan staf sekolah dalam menjaga standar pendidikan yang tinggi. 
+            Akreditasi ini tidak hanya mencerminkan kualitas pendidikan yang diberikan oleh TK Mutiara Balige, 
+            tetapi juga komitmen sekolah untuk terus meningkatkan mutu pengajaran, 
+            fasilitas, dan program pembelajaran sesuai dengan kebutuhan dan perkembangan zaman. 
+            Dengan akreditasi ini, TK Mutiara Balige bertekad untuk terus berinovasi dan memberikan pendidikan 
+            terbaik bagi anak-anak didiknya, membekali mereka dengan fondasi yang kuat untuk masa depan yang cerah.
+          </p>
         </div>
-        <span>Nilai Standar Kelulusan</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 32%;" aria-valuenow="3.2" aria-valuemin="0" aria-valuemax="100">32/100</div>
-        </div>
-        <span>Nilai Standar Proses</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 81%;" aria-valuenow="8.1" aria-valuemin="0" aria-valuemax="100">81/100</div>
-        </div>
-        <span>Nilai Standar Pendidikan</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 48%;" aria-valuenow="4.8" aria-valuemin="0" aria-valuemax="100">48/100</div>
-        </div>
-        <span>Nilai Standar Sarana Prasarana</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 96%;" aria-valuenow="9.6" aria-valuemin="0" aria-valuemax="100">96/100</div>
-        </div>
-        <span>Nilai Standar Pengelolaan</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 11.3%;" aria-valuenow="1.13" aria-valuemin="0" aria-valuemax="1000">113/1000</div>
-        </div>
-        <span>Nilai Standar Sarana Pembiayaan</span>
-        <div class="progress mb-3">
-          <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="4.0" aria-valuemin="0" aria-valuemax="100">40/100</div>
+        <div class="col-md-6">
+          <div class="progress-section">
+            <span>Nilai Standar Isi</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 121%;" aria-valuenow="121" aria-valuemin="0" aria-valuemax="100">121/100</div>
+            </div>
+            <span>Nilai Standar Kelulusan</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">32/100</div>
+            </div>
+            <span>Nilai Standar Proses</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 81%;" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100">81/100</div>
+            </div>
+            <span>Nilai Standar Pendidikan</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 48%;" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">48/100</div>
+            </div>
+            <span>Nilai Standar Sarana Prasarana</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 96%;" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">96/100</div>
+            </div>
+            <span>Nilai Standar Pengelolaan</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 11.3%;" aria-valuenow="11.3" aria-valuemin="0" aria-valuemax="1000">113/1000</div>
+            </div>
+            <span>Nilai Standar Sarana Pembiayaan</span>
+            <div class="progress mb-3">
+              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40/100</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>  
 {{-- akreditasi end --}}
 
   

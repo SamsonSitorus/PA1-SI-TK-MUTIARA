@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Prestasi;
+use App\Models\prestasi;
 use Livewire\Component;
 
 class DeletePrestasi extends Component
@@ -25,7 +25,7 @@ class DeletePrestasi extends Component
 
     public function destroy($prestasiId)
     {
-        $prestasi = Prestasi::find($prestasiId);
+        $prestasi = prestasi::find($prestasiId);
         if ($prestasi) {
             $prestasi->delete();
             session()->flash('success', 'Data Prestasi berhasil dihapus.');
