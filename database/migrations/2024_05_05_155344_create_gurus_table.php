@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('image')->nullable(); // URL or Path to image
             $table->string('name'); // User's name
             $table->string('alamat'); // User's address
-            $table->string('no_telp'); // User's phone number
+            $table->string('no_telp')->unique(); // User's phone number
             $table->enum('jeniskelamin', ['laki-laki', 'perempuan']);
             $table->timestamps();
         });

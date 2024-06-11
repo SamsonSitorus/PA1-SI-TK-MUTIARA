@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('pihak');
             $table->date('date');
             $table->integer('nilai_isi');
-            $table->integer('nilai_kelulusan');
+            $table->integer('nilai_kelulusan'); 
             $table->integer('nilai_proses');
             $table->integer('nilai_pendidikan');
             $table->integer('nilai_prasarana');

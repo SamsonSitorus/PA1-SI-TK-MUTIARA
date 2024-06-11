@@ -127,3 +127,4 @@ Route::post('/akreditasi', [akreditasiController::class, 'store'])->name('akredi
 Route::get('/akreditasi/{id}/edit', [akreditasiController::class, 'edit'])->name('akreditasi.edit');
 Route::put('/akreditasi/{id}', [akreditasiController::class, 'update'])->name('akreditasi.update');
 Route::delete('/akreditasi/{id}', [akreditasiController::class, 'destroy'])->name('akreditasi.destroy');
+Route::get('/profil', [akreditasiController::class, 'profil'])->name('profil');

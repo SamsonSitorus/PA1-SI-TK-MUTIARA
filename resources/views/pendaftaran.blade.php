@@ -2,7 +2,7 @@
 
 @section('container')
     <div class="container-fluid bg-primary mb-5">
-        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 240px">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 200px">
             <h3 class="display-3 font-weight-bold text-white"style="font-family: Bookman Old Style">Pendaftaran</h3>
             <div class="d-inline-flex text-white">
                 <p class="m-0"><a class="text-white" href="/">Beranda</a></p>

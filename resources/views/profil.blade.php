@@ -5,7 +5,7 @@
 <div class="container-fluid bg-primary mb-5">
     <div
       class="d-flex flex-column align-items-center justify-content-center"
-      style="min-height: 240px" >
+      style="min-height: 200px" >
       <h3 class="display-3 font-weight-bold text-white" style="font-family: Bookman Old Style">Profil</h3>
       <div class="d-inline-flex text-white">
         <p class="m-0"><a class="text-white" href="/">Beranda</a></p>
@@ -130,15 +130,16 @@
 
   {{-- akreditasi start --}}
   <section id="akreditasi">
+    @foreach ($akreditasis as $key => $akreditasi)
     <div class="container">
       <div class="row">
         <div class="col-md-6">
           <h2 class="mb-4" style="font-family: Berlin Sans FB Demi">Akreditasi TK Mutiara Balige</h2>
           <p class="text-muted text-justify">
-            TK Mutiara Balige dengan bangga mengumumkan bahwa Sekolah ini telah meraih akreditasi dengan predikat <span class="badge badge-success">Grade B</span>,
-            yang diberikan oleh BAN-S/M (Badan Akreditasi Nasional Sekolah/Madrasah). 
-            Pencapaian ini diperoleh dengan nilai <span class="badge badge-primary">560</span> 
-            (akreditasi tahun 2018).
+            TK Mutiara Balige dengan bangga mengumumkan bahwa Sekolah ini telah meraih akreditasi dengan predikat <span class="badge badge-success">{{ $akreditasi->grade }}</span>,
+            yang diberikan oleh {{ $akreditasi->pihak }}. 
+            Pencapaian ini diperoleh dengan nilai <span class="badge badge-primary">{{ $akreditasi->total }}</span> Pada
+            ({{ $akreditasi->date }}).
             yang merupakan hasil dari kerja keras dan dedikasi seluruh tim pengajar
             dan staf sekolah dalam menjaga standar pendidikan yang tinggi. 
             Akreditasi ini tidak hanya mencerminkan kualitas pendidikan yang diberikan oleh TK Mutiara Balige, 
@@ -152,38 +153,37 @@
           <div class="progress-section">
             <span>Nilai Standar Isi</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 121%;" aria-valuenow="121" aria-valuemin="0" aria-valuemax="100">121/100</div>
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_isi }}%;" aria-valuenow="{{ $akreditasi->nilai_isi }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_isi }}/100</div>
             </div>
             <span>Nilai Standar Kelulusan</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 32%;" aria-valuenow="32" aria-valuemin="0" aria-valuemax="100">32/100</div>
+              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_kelulusan }}%;" aria-valuenow="{{ $akreditasi->nilai_kelulusan }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_kelulusan }}/100</div>
             </div>
             <span>Nilai Standar Proses</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 81%;" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100">81/100</div>
+              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_proses }}%;" aria-valuenow="{{ $akreditasi->nilai_proses }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_proses }}/100</div>
             </div>
             <span>Nilai Standar Pendidikan</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: 48%;" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">48/100</div>
+              <div class="progress-bar bg-info progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_pendidikan }}%;" aria-valuenow="{{ $akreditasi->nilai_pendidikan }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_pendidikan }}/100</div>
             </div>
             <span>Nilai Standar Sarana Prasarana</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: 96%;" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100">96/100</div>
+              <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_prasarana }}%;" aria-valuenow="{{ $akreditasi->nilai_prasarana }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_prasarana }}/100</div>
             </div>
             <span>Nilai Standar Pengelolaan</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: 11.3%;" aria-valuenow="11.3" aria-valuemin="0" aria-valuemax="1000">113/1000</div>
+              <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_pengelola }}%;" aria-valuenow="{{ $akreditasi->nilai_pengelola }}" aria-valuemin="0" aria-valuemax="1000">{{ $akreditasi->nilai_pengelola }}/100</div>
             </div>
             <span>Nilai Standar Sarana Pembiayaan</span>
             <div class="progress mb-3">
-              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: 40%;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">40/100</div>
+              <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ $akreditasi->nilai_pembiayaan }}%;" aria-valuenow="{{ $akreditasi->nilai_pembiayaan }}" aria-valuemin="0" aria-valuemax="100">{{ $akreditasi->nilai_pembiayaan }}/100</div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    @endforeach
   </section>  
 {{-- akreditasi end --}}
-
-  
 @endsection

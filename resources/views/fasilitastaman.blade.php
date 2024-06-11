@@ -5,7 +5,7 @@
 <div class="container-fluid bg-primary mb-5">
     <div
       class="d-flex flex-column align-items-center justify-content-center"
-      style="min-height: 240px">
+      style="min-height: 200px">
       <h3 class="display-3 font-weight-bold text-white"style="font-family: Bookman Old Style">Fasilitas Taman</h3>
       <div class="d-inline-flex text-white">
         <p class="m-0"><a class="text-white" href="/">Beranda</a></p>
@@ -36,20 +36,17 @@
                   <a href="{{ asset('fasilitass/' . $fasilitas->image) }}" data-gallery="portfolio-gallery" class="portfolio-lightbox" title="{{ $fasilitas->name }}">
                     <i class="fa fa-search"></i>
                   </a>
-                  <a href="{{ route('show5', $fasilitas->id) }}">
-                    <i class="fa fa-upload"></i>
-                  </a>
                 </div>
               </div>
               <div class="portfolio-info">
                 <h4 style="font-family: Berlin Sans FB Demi">{{ $fasilitas->name }}</h4>
-                <p>{{ Str::limit($fasilitas->description, 100) }}</p>
-              </div>
+                <a href="{{ route('show5', $fasilitas->id) }}" target="_blank" class="btn btn-primary btn-block">Lihat Selengkapnya</a>              </div>
             </div>
           </div>
           @endforeach
         </div>
       </div>
     </section>
+    
     {{-- end fasilitas--}}
 @endsection

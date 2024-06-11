@@ -49,7 +49,7 @@
             </li>
             <li class="sidebar-item {{ Request::is('akreditasi*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('akreditasi.index') }}">
-                    <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Akreditasi</span>
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Akreditasi</span>
                 </a>
             </li>
         

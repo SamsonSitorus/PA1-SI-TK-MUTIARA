@@ -10,7 +10,7 @@ return new class extends Migration
         Schema::create('prestasis', function (Blueprint $table) { // Nama tabel
             $table->id();
             $table->string('image')->nullable(); // Kolom gambar, dengan nilai default nullable
-            $table->string('title', 255); // Batas maksimum 255 karakter
+            $table->string('title', 255)->unique(); // Batas maksimum 255 karakter
             $table->text('content'); // Kolom content
             $table->text('url')->nullable(); // URL bisa opsional
             $table->date('date'); // Kolom tanggal
