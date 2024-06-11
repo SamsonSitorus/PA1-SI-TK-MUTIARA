@@ -121,22 +121,9 @@ Route::get('/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])-
 
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
-
-
-// Rute untuk menampilkan daftar akreditasi
-Route::get('/akreditasi', [akreditasiController::class, 'index'])->name('akreditasi.index');
-
-// Rute untuk menampilkan form tambah akreditasi
+Route::get('/akreditasis', [akreditasiController::class, 'index'])->name('akreditasi.index');
 Route::get('/akreditasi/create', [akreditasiController::class, 'create'])->name('akreditasi.create');
-
-// Rute untuk menyimpan data akreditasi baru
 Route::post('/akreditasi', [akreditasiController::class, 'store'])->name('akreditasi.store');
-
-// Rute untuk menampilkan form edit akreditasi
 Route::get('/akreditasi/{id}/edit', [akreditasiController::class, 'edit'])->name('akreditasi.edit');
-
-// Rute untuk memperbarui data akreditasi
 Route::put('/akreditasi/{id}', [akreditasiController::class, 'update'])->name('akreditasi.update');
-
-// Rute untuk menghapus data akreditasi
 Route::delete('/akreditasi/{id}', [akreditasiController::class, 'destroy'])->name('akreditasi.destroy');
