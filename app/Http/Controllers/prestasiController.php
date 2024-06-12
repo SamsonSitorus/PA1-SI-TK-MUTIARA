@@ -45,7 +45,7 @@ class PrestasiController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|min:4|max:255',
             'content' => 'required|string',
             'url' => 'nullable|string|url', // URL harus valid
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image
@@ -87,7 +87,7 @@ class PrestasiController extends Controller
     public function update(Request $request, int $id)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string||min:4|max:255',
             'content' => 'required|string',
             'url' => 'nullable|string|url', // Valid URL
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image

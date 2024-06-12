@@ -63,7 +63,7 @@ public function show($id)
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:4|max:255',
             'description' => 'nullable|string',
             'kategori_id' => 'required|exists:kategoris,id',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
@@ -98,7 +98,7 @@ public function show($id)
     public function update(Request $request, Fasilitas $fasilitas)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:4|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);

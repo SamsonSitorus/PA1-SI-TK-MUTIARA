@@ -30,7 +30,7 @@ class GuruController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:255',
+            'name' => 'required|string|min:4|max:255',
             'alamat' => 'required|string|max:255',
             'no_telp' => 'required|string|min:12|max:15|regex:/^\d+$/|unique:gurus,no_telp', // Nomor telepon unik
             'jeniskelamin' => 'required|in:laki-laki,perempuan',
@@ -78,7 +78,7 @@ class GuruController extends Controller
     {
         try {
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|min:4|max:255',
                 'alamat' => 'required|string|max:255',
                 'no_telp' => 'required|string|min:12|max:15|regex:/^\d+$/',
                 'jeniskelamin' => 'required|in:laki-laki,perempuan',

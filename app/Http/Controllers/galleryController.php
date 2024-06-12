@@ -37,7 +37,7 @@ class GalleryController extends Controller
     public function store(Request $request)
 {
     $validated = $request->validate([
-        'title' => 'required|string|max:255', // Menambahkan aturan validasi unik
+        'title' => 'required|string|min:4|max:255', // Menambahkan aturan validasi unik
         'content' => 'required|string',
         'url' => 'nullable|string|url',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -81,7 +81,7 @@ class GalleryController extends Controller
     public function update(Request $request, $id)
 {
     $validated = $request->validate([
-        'title' => 'required|string|max:255',
+        'title' => 'required|string|min:4|max:255',
         'content' => 'required|string',
         'url' => 'nullable|string|url',
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
