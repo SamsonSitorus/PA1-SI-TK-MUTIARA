@@ -15,5 +15,6 @@ use Illuminate\Database\Eloquent\Model;
             'alamat',
             'no_telp',
             'jeniskelamin',
+            'status',
         ];
     }

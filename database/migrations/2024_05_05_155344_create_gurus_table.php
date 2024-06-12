@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('alamat'); // User's address
             $table->string('no_telp')->unique(); // User's phone number
             $table->enum('jeniskelamin', ['laki-laki', 'perempuan']);
+            $table->enum('status', ['aktif', 'tidak aktif'])->default('aktif');
             $table->timestamps();
         });
     }

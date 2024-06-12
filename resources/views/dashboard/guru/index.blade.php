@@ -29,6 +29,7 @@
                                     <th>Alamat</th>
                                     <th>No. Telp</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Status</th>
                                     <th>Foto</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -41,6 +42,7 @@
                                         <td>{{ $guru->alamat }}</td>
                                         <td>{{ $guru->no_telp }}</td>
                                         <td>{{ ucfirst($guru->jeniskelamin) }}</td>
+                                        <td>{{ ucfirst($guru->status) }}</td>
                                         <td>
                                             @if ($guru->image)
                                                 <img src="{{ asset('guruu/' . $guru->image) }}" style="width: 200px; height: auto;" alt="{{ $guru->name }}">
@@ -64,6 +66,7 @@
                                     <th>Alamat</th>
                                     <th>No. Telp</th>
                                     <th>Jenis Kelamin</th>
+                                    <th>Status</th>
                                     <th>Foto</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -71,13 +74,15 @@
                         </table>
                     </div>
                 </div>
+            </div>
+        </div>
     </main>
 
     <!-- Tambahkan JavaScript untuk DataTables -->
 @section('scripts')
     <script>
         $(document).ready(function() {
-            $('#guruTable').DataTable(); < !--Inisialisasi DataTables-- >
+            $('#myTable').DataTable(); <!-- Inisialisasi DataTables -->
         });
     </script>
 @endsection

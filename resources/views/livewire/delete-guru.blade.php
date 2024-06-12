@@ -1,10 +1,11 @@
 <div>
     <button wire:click="confirmDelete" class="btn btn-danger btn-sm">
-        <i data-feather="trash-2"></i> 
+        <i data-feather="trash-2"></i>
     </button>
 </div>
- @push('DeleteGuru')
- <script type="text/javascript">
+
+@push('DeleteGuru')
+<script type="text/javascript">
     document.addEventListener('DOMContentLoaded', function () {
         @this.on('triggerDelete', guruId => {
             Swal.fire({
@@ -21,16 +22,27 @@
                     // Panggil metode destroy untuk menghapus
                     @this.call('destroy', guruId)
                     // Tanggapan sukses
-                    Swal.fire({
-                        title: 'Hapus Data Sukses!',
-                        text: 'Data guru telah dihapus',
-                        icon: 'success',
-                        showConfirmButton: true,
-                        timer: 2500
+                    .then(response => {
+                        if (response === 'success') {
+                            Swal.fire({
+                                title: 'Hapus Data Sukses!',
+                                text: 'Data guru telah dihapus',
+                                icon: 'success',
+                                showConfirmButton: true,
+                                timer: 2500
+                            });
+                        } else {
+                            Swal.fire({
+                                title: 'Hapus Data Gagal!',
+                                text: 'Guru dengan status aktif tidak dapat dihapus',
+                                icon: 'error',
+                                timer: 2500
+                            });
+                        }
                     });
                 } else {
                     Swal.fire({
-                        title: 'Hapus Data dibatalkan!',
+                        title: 'Hapus Data Dibatalkan!',
                         text: 'Data guru tidak dihapus',
                         icon: 'error',
                         timer: 2500
@@ -38,7 +50,6 @@
                 }
             });
         });
-    })
+    });
 </script>
-
-@endpush  
+@endpush
