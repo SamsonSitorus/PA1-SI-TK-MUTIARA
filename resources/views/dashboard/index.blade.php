@@ -66,6 +66,39 @@
                                     <div class="small"><i class="fas fa-angle-right"></i></div>
                                 </div>
                             </div>
+                        </div>       
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <h1></h1> Jumlah Siswa
+                                </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small link-dark stretched-link" href="{{ route('jumlah.index') }}">Kelola Jumlah Siswa</a>
+                                    <div class="small"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                        </div>  
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <h1></h1> Akreditasi
+                                </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small link-dark stretched-link" href="{{ route('akreditasi.index') }}">Kelola AKreditasi</a>
+                                    <div class="small"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
+                        </div>     
+                        <div class="col-xl-4 col-md-6">
+                            <div class="card shadow mb-4">
+                                <div class="card-body">
+                                    <h1></h1> Admin
+                                </div>
+                                <div class="card-footer d-flex align-items-center justify-content-between">
+                                    <a class="small link-dark stretched-link" href="/dashboard/admin">Kelola Admin</a>
+                                    <div class="small"><i class="fas fa-angle-right"></i></div>
+                                </div>
+                            </div>
                         </div>          
                         <div class="col-xl-4 col-md-6">
                             <div class="card shadow mb-4">

@@ -45,29 +45,35 @@ class PrestasiController extends Controller
     {
         // Validasi input
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string|min:4|max:255',
             'content' => 'required|string',
             'url' => 'nullable|string|url', // URL harus valid
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image
             'date' => 'required|date', // Date is required
         ]);
-
-        $prestasi = new prestasi();
-        $prestasi->fill($validated);
-
-        
-        $gambarNama = $request->file('image')->getClientOriginalName();
-        // Simpan gambar ke folder public/img
-        $gambarPath = $request->file('image')->move(public_path('prestasii'), $gambarNama);
-
-        // Ambil nama file gambar dengan ekstensinya
-        $gambarNama = $request->file('image')->getClientOriginalName();
-
-        $prestasi->image = $gambarNama;
-
-        $prestasi->save(); // Simpan entitas baru
-
-        return redirect()->route('prestasi.index')->with('success', 'Prestasi berhasil dibuat.');
+    
+        try {
+            $prestasi = new prestasi();
+            $prestasi->fill($validated);
+    
+            if ($request->hasFile('image')) {
+                $gambarNama = $request->file('image')->getClientOriginalName();
+                // Simpan gambar ke folder public/prestasii
+                $gambarPath = $request->file('image')->move(public_path('prestasii'), $gambarNama);
+                $prestasi->image = $gambarNama;
+            }
+    
+            $prestasi->save(); // Simpan entitas baru
+    
+            return redirect()->route('prestasi.index')->with('success', 'Prestasi berhasil dibuat.');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Cek apakah kode error adalah 1062 dan pesan error mengandung 'prestasis_title_unique'
+            if ($e->errorInfo[1] == 1062 && strpos($e->getMessage(), 'prestasis_title_unique') !== false) {
+                return back()->withErrors(['title' => 'Judul sudah ada.'])->withInput();
+            } else {
+                return back()->withErrors(['error' => 'Terjadi kesalahan.'])->withInput();
+            }
+        }
     }
 
     public function edit(prestasi $prestasi)
@@ -78,42 +84,50 @@ class PrestasiController extends Controller
             'prestasi' => $prestasi,
         ]);
     }
-
     public function update(Request $request, int $id)
     {
         $validated = $request->validate([
-            'title' => 'required|string|max:255',
+            'title' => 'required|string||min:4|max:255',
             'content' => 'required|string',
             'url' => 'nullable|string|url', // Valid URL
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Optional image
             'date' => 'required|date', // Valid date
         ]);
 
-        $prestasi = prestasi::findOrFail($id);
-        $prestasi->fill($validated);
+        try {
+            $prestasi = prestasi::findOrFail($id);
+            $prestasi->fill($validated);
 
-        if ($request->hasFile('image')) {
-            if ($prestasi->image) {
-                // Get the old image path
-                $oldImagePath = 'public/prestasii/' . $prestasi->image;
+            if ($request->hasFile('image')) {
+                if ($prestasi->image) {
+                    // Get the old image path
+                    $oldImagePath = 'public/prestasii/' . $prestasi->image;
 
-                // Delete the old image from storage
-                Storage::delete($oldImagePath);
+                    // Delete the old image from storage
+                    Storage::delete($oldImagePath);
+                }
+
+                // Get the original file name of the uploaded image
+                $gambarNama = $request->file('image')->getClientOriginalName();
+
+                // Save the new image to the specified directory
+                $gambarPath = $request->file('image')->move(public_path('prestasii'), $gambarNama);
+
+                // Update the image attribute of the $prestasi model
+                $prestasi->image = $gambarNama;
             }
 
-            // Get the original file name of the uploaded image
-            $gambarNama = $request->file('image')->getClientOriginalName();
+            $prestasi->save(); // Simpan entitas yang diperbarui
 
-            // Save the new image to the specified directory
-            $gambarPath = $request->file('image')->move(public_path('prestasii'), $gambarNama);
-
-            // Update the image attribute of the $guru model
-            $prestasi->image = $gambarNama;
+            return redirect()->route('prestasi.index')->with('success', 'Prestasi diperbarui dengan sukses.');
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Cek apakah kode error adalah 1062 dan pesan error mengandung 'prestasis_title_unique'
+            if ($e->errorInfo[1] == 1062 && strpos($e->getMessage(), 'prestasis_title_unique') !== false) {
+                return back()->withErrors(['title' => 'Judul sudah ada.'])->withInput();
+            } else {
+                return back()->withErrors(['error' => 'Terjadi kesalahan.'])->withInput();
+            }
         }
-
-        $prestasi->save(); // Simpan entitas yang diperbarui
-
-        return redirect()->route('prestasi.index')->with('success', 'Prestasi diperbarui dengan sukses.');
     }
 
     public function destroy(int $id)

@@ -15,13 +15,6 @@
             <li class="sidebar-header">
                 Data Halaman
             </li>
-            {{--  
-            <li class="sidebar-item {{ Request::is('dashboard/beranda*') ? 'active' : '' }}">
-                <a class="sidebar-link" href="/dashboard/beranda">
-                    <i class="align-middle" data-feather="home"></i> <span class="align-middle">Beranda</span>
-                </a>
-            </li>
-            --}}
             <li class="sidebar-item {{ Request::is('prestasi*') ? 'active' : '' }}">
                 <a class="sidebar-link" href="{{ route('prestasi.index') }}">
                     <i class="align-middle" data-feather="file-text"></i> 
@@ -54,8 +47,12 @@
                     <i class="align-middle" data-feather="plus"></i> <span class="align-middle">Jumlah Siswa</span>
                 </a>
             </li>
-          
-
+            <li class="sidebar-item {{ Request::is('akreditasi*') ? 'active' : '' }}">
+                <a class="sidebar-link" href="{{ route('akreditasi.index') }}">
+                    <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Akreditasi</span>
+                </a>
+            </li>
+        
             <li class="sidebar-header">
                 Data Administrator
             </li>

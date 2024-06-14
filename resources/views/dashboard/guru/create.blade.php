@@ -65,6 +65,21 @@
                                   @enderror
                               </div>
                           </div>
+                          <div class="mb-3 row">
+                            <label for="status" class="col-sm-2 col-form-label text-end fw-semibold text-secondary">Status</label>
+                            <div class="col-sm-10">
+                                <select class="form-control @error('status') is-invalid @enderror" id="status" name="status" required>
+                                    <option value="">Pilih Status</option>
+                                    <option value="aktif" {{ old('status') == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                                    <option value="tidak aktif" {{ old('status') == 'tidak aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                                </select>
+                                @error('status')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                        </div>
 
                           <div class="mb-3 row">
                               <label for="image" class="col-sm-2 col-form-label text-end fw-semibold text-secondary">Foto</label>

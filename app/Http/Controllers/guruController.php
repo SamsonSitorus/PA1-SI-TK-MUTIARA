@@ -27,45 +27,45 @@ class GuruController extends Controller
             'author' => 'Kelompok 10',
         ]);
     }
-
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|string|min:4|max:255',
+            'alamat' => 'required|string|max:255',
+            'no_telp' => 'required|string|min:12|max:15|regex:/^\d+$/|unique:gurus,no_telp', // Nomor telepon unik
+            'jeniskelamin' => 'required|in:laki-laki,perempuan',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'status' => 'required|in:aktif,tidak aktif',
+        ]);
+    
         try {
-            $validated = $request->validate([
-                'name' => 'required|string|max:255',
-                'alamat' => 'required|string|max:255',
-                'no_telp' => 'required|string|min:12|max:15|regex:/^\d+$/',
-                'jeniskelamin' => 'required|in:laki-laki,perempuan',
-                'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
-            ]);
-
-            $guru = new Guru(); // Buat objek guru baru
-            $guru->fill($validated);
-
-
-            $gambarNama = $request->file('image')->getClientOriginalName();
-            // Simpan gambar ke folder public/img
-            $gambarPath = $request->file('image')->move(public_path('guruu'), $gambarNama);
-
-            // Ambil nama file gambar dengan ekstensinya
-            $gambarNama = $request->file('image')->getClientOriginalName();
-
-            $guru->image = $gambarNama;
-
-
-
-            $guru->save(); // Simpan ke database
-
+            $guru = new Guru();
+            $guru->name = $validated['name'];
+            $guru->alamat = $validated['alamat'];
+            $guru->no_telp = $validated['no_telp'];
+            $guru->jeniskelamin = $validated['jeniskelamin'];
+            
+    
+            if ($request->hasFile('image')) {
+                $gambarNama = $request->file('image')->getClientOriginalName();
+                // Simpan gambar ke folder public/guruu
+                $gambarPath = $request->file('image')->move(public_path('guruu'), $gambarNama);
+                $guru->image = $gambarNama;
+            }
+    
+            $guru->save();
+    
             return redirect()->route('guru.index')->with('success', 'Data Guru berhasil ditambahkan.');
-        } catch (ValidationException $e) {
-            Log::error('Validasi gagal: ' . json_encode($e->errors())); // Simpan kesalahan validasi ke log
-            return back()->withErrors($e->errors())->withInput(); // Kembalikan ke formulir dengan kesalahan dan input sebelumnya
-        } catch (\Exception $e) {
-            Log::error('Kesalahan saat menyimpan data guru: ' . $e->getMessage()); // Simpan kesalahan lainnya
-            return back()->withErrors(['error' => 'Terjadi kesalahan saat menyimpan data.']); // Pesan kesalahan umum
+        } catch (\Illuminate\Database\QueryException $e) {
+            // Cek apakah kode error adalah 1062 dan pesan error mengandung 'gurus_no_telp_unique'
+            if ($e->errorInfo[1] == 1062 && strpos($e->getMessage(), 'gurus_no_telp_unique') !== false) {
+                return back()->withErrors(['no_telp' => 'Nomor telepon sudah ada.'])->withInput();
+            } else {
+                return back()->withErrors(['error' => 'Terjadi kesalahan.'])->withInput();
+            }
         }
     }
-
+    
     public function edit(Guru $guru)
     {
         return view('dashboard.guru.edit', [
@@ -74,16 +74,16 @@ class GuruController extends Controller
             'guru' => $guru,
         ]);
     }
-
     public function update(Request $request, int $id)
     {
         try {
             $validated = $request->validate([
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|min:4|max:255',
                 'alamat' => 'required|string|max:255',
                 'no_telp' => 'required|string|min:12|max:15|regex:/^\d+$/',
                 'jeniskelamin' => 'required|in:laki-laki,perempuan',
-                'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
+                'image' => 'nullable|image|mimes:jpg,jpeg,png,gif|max:2048',
+                'status' => 'required|in:aktif,tidak aktif',
             ]);
 
             $guru = Guru::findOrFail($id); // Cari entitas guru berdasarkan ID
@@ -123,18 +123,21 @@ class GuruController extends Controller
             return back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data.']); // Pesan kesalahan umum
         }
     }
-
     public function destroy(int $id)
     {
         try {
             $guru = Guru::findOrFail($id); // Cari guru dengan ID
-
+    
+            if ($guru->status === 'aktif') {
+                return back()->withErrors(['error' => 'Guru dengan status aktif tidak dapat dihapus.']); // Pesan kesalahan khusus
+            }
+    
             if ($guru->image) {
                 Storage::delete('public/' . $guru->image); // Hapus gambar
             }
-
+    
             $guru->delete(); // Hapus entitas
-
+    
             return redirect()->route('guru.index')->with('success', 'Data Guru berhasil dihapus.');
         } catch (\Exception $e) {
             Log::error('Kesalahan saat menghapus guru: ' . $e->getMessage()); // Simpan log kesalahan

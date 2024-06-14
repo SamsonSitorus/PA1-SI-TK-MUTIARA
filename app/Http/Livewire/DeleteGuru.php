@@ -22,11 +22,19 @@ class DeleteGuru extends Component
     public function destroy($guruId)
     {
         $guru = Guru::find($guruId);
+        
         if ($guru) {
+            // Periksa apakah status guru adalah "aktif"
+            if ($guru->status === 'aktif') {
+                session()->flash('error', 'Guru dengan status aktif tidak dapat dihapus.');
+                return redirect()->route('guru.index');
+            }
+            
+            // Jika status guru tidak "aktif", maka lakukan penghapusan
             $guru->delete();
             session()->flash('success', 'Data guru berhasil dihapus.');
             return redirect()->route('guru.index');
-        }
+    }
     }
 
     public function render()

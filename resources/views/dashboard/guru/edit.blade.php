@@ -54,6 +54,18 @@
                     <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
+              <!---Status--->
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <select name="status" id="status" class="form-control @error('status') is-invalid @enderror" required>
+                    <option value="">Pilih Status</option>
+                    <option value="aktif" {{ old('status', $guru->status) == 'aktif' ? 'selected' : '' }}>Aktif</option>
+                    <option value="tidak aktif" {{ old('status', $guru->status) == 'tidak aktif' ? 'selected' : '' }}>Tidak Aktif</option>
+                </select>
+                @error('status')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
+            </div>
                 <!-- Image Field with Preview -->
               <div class="mb-3">
                 <label for="image" class="form-label">Upload Foto</label>

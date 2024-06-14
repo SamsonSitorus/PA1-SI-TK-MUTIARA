@@ -13,7 +13,7 @@
                     @endif
                     <div class="card-body">
                         <h2 class="card-title">{{ $pengumuman->title }}</h2>
-                        <p class="card-text">{{ Str::limit($pengumuman->content, 50) }}</p>
+                        <p class="card-text">{{ Str::limit($pengumuman->content, 1000) }}</p>
                     </div>
                     <div class="card-footer text-muted">
                         <small>{{ $pengumuman->title }}</small>

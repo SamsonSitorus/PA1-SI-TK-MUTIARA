@@ -34,31 +34,40 @@ class GalleryController extends Controller
         ]);
     }
 
-    public function store(Request $request) {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'url' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+    public function store(Request $request)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|min:4|max:255', // Menambahkan aturan validasi unik
+        'content' => 'required|string',
+        'url' => 'nullable|string|url',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
+    try {
         $gallery = new Gallery();
-        $gallery->fill($validated); 
+        $gallery->fill($validated);
 
-        $gambarNama = $request->file('image')->getClientOriginalName();
-            // Simpan gambar ke folder public/img
-            $gambarPath = $request->file('image')->move(public_path('galleryy'), $gambarNama);
-
-            // Ambil nama file gambar dengan ekstensinya
+        if ($request->hasFile('image')) {
             $gambarNama = $request->file('image')->getClientOriginalName();
-
+            // Simpan gambar ke folder public/galleryy
+            $gambarPath = $request->file('image')->move(public_path('galleryy'), $gambarNama);
             $gallery->image = $gambarNama;
-
+        }
 
         $gallery->save();
 
         return redirect()->route('gallery.index')->with('success', 'Galeri berhasil dibuat.');
+    } catch (\Illuminate\Database\QueryException $e) {
+        // Cek apakah kode error adalah 1062 dan pesan error mengandung 'gallery_title_unique'
+        if ($e->errorInfo[1] == 1062 && strpos($e->getMessage(), 'gallery_title_unique') !== false) {
+            return back()->withErrors(['title' => 'Judul sudah ada.'])->withInput();
+        } else {
+            return back()->withErrors(['error' => 'Terjadi kesalahan.'])->withInput();
+        }
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Terjadi kesalahan saat menyimpan data.'])->withInput();
     }
+}
 
     public function edit(Gallery $gallery)
     {
@@ -69,41 +78,53 @@ class GalleryController extends Controller
         ]);
     }
 
-    public function update(Request $request, $id) {
-        $validated = $request->validate([
-            'title' => 'required|string|max:255',
-            'content' => 'required|string',
-            'url' => 'required|string',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+    public function update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'title' => 'required|string|min:4|max:255',
+        'content' => 'required|string',
+        'url' => 'nullable|string|url',
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+    ]);
 
+    try {
         $gallery = Gallery::findOrFail($id);
-
         $gallery->fill($validated);
 
         if ($request->hasFile('image')) {
             if ($gallery->image) {
-                // Get the old image path
+                // Dapatkan jalur gambar lama
                 $oldImagePath = 'public/galleryy/' . $gallery->image;
 
-                // Delete the old image from storage
+                // Hapus gambar lama dari penyimpanan
                 Storage::delete($oldImagePath);
             }
 
-            // Get the original file name of the uploaded image
+            // Dapatkan nama file asli dari gambar yang diunggah
             $gambarNama = $request->file('image')->getClientOriginalName();
 
-            // Save the new image to the specified directory
+            // Simpan gambar baru ke direktori yang ditentukan
             $gambarPath = $request->file('image')->move(public_path('galleryy'), $gambarNama);
 
-            // Update the image attribute of the $guru model
+            // Perbarui atribut gambar dari model galeri
             $gallery->image = $gambarNama;
         }
 
         $gallery->save();
 
-        return redirect()->route('gallery.index')->with('success', 'Galeri diperbarui dengan sukses.');
+        return redirect()->route('gallery.index')->with('success', 'Galeri berhasil diperbarui.');
+    } catch (\Illuminate\Database\QueryException $e) {
+        // Periksa apakah kode kesalahan adalah 1062 dan jika pesan kesalahan mengandung 'gallery_title_unique'
+        if ($e->errorInfo[1] == 1062 && strpos($e->getMessage(), 'gallery_title_unique') !== false) {
+            return back()->withErrors(['title' => 'Judul sudah ada.'])->withInput();
+        } else {
+            return back()->withErrors(['error' => 'Terjadi kesalahan.'])->withInput();
+        }
+    } catch (\Exception $e) {
+        // Penanganan kesalahan umum
+        return back()->withErrors(['error' => 'Terjadi kesalahan saat memperbarui data.'])->withInput();
     }
+}
     public function destroy($id)
     {
         $gallery = Gallery::findOrFail($id);
