@@ -99,7 +99,6 @@
                 Selain itu, lokasi kami dekat dengan berbagai fasilitas lainnya,
                 seperti pusat perbelanjaan, taman, dan fasilitas kesehatan, yang menambah kenyamanan dan keamanan lingkungan sekitar sekolah.
             </p>
-            
           </div>
           <div class="col-md-6">
               <!-- Embedded Google Maps Iframe -->
