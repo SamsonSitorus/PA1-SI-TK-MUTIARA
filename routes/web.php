@@ -117,8 +117,7 @@ Route::post('/fasilitas', [FasilitasController::class, 'store'])->name('fasilita
 Route::put('/fasilitas/{fasilitas}', [FasilitasController::class, 'update'])->name('fasilitas.update');
 Route::delete('/fasilitas/{fasilitas}', [FasilitasController::class, 'destroy'])->name('fasilitas.destroy');
 Route::get('/fasilitas/{fasilitas}/edit', [FasilitasController::class, 'edit'])->name('fasilitas.edit');
-
-
+Route::get('/fasilitas/{id}', [FasilitasController::class, 'show'])->name('fasilitas.show');
 Route::get('/search', [SearchController::class, 'search'])->name('search');
 
 Route::get('/akreditasis', [akreditasiController::class, 'index'])->name('akreditasi.index');

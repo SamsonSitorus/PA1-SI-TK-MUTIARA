@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire;
 
-use App\Models\Pengumuman;
+use App\Models\pengumuman;
 use Livewire\Component;
 
 class Deletepengumuman extends Component

@@ -1,7 +1,7 @@
 <!-- Navbar Start -->
 <div class="container-fluid bg-light position-relative shadow">
   <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0 px-lg-5">
-    <a href="" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
+    <a href="/" class="navbar-brand font-weight-bold text-secondary" style="font-size: 35px">
       <img class="img-fluid" src="/img/logo.png" alt="TK Mutiara balige" style="width: 60px; height: 60px" />
       <span class="text-primary">{{ $title }}</span>
     </a>
@@ -21,7 +21,7 @@
         </div>
         <a href="/pencapaian" class="nav-item nav-link {{ Request::is('prestasi') ? 'active' : '' }}">Prestasi</a>
         <a href="/tentang" class="nav-item nav-link {{ Request::is('tentang') ? 'active' : '' }}">Tentang Kami</a>
-        <a href="/pendaftaran" class="nav-item nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">Pendaftaran</a>
+        <a href="/pendaftaran" class="nav-item nav-link {{ Request::is('pengumuman') ? 'active' : '' }}">Pengumuman</a>
       </div>
       @auth
       <a target="_blank" href="/dashboard" class="btn btn-primary px-4 mr-2">{{ auth()->user()->username }}</a>

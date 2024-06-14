@@ -89,8 +89,17 @@
       <div class="row">
           <div class="col-md-6">
               <h3 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Bagaimana Cara Mengunjungi Kami?</h3>
-              <p>Taman Kanak-Kanak Swasta Mutiara Balige terletak di Desa Balige III, Kecamatan Balige, hanya beberapa menit dari Danau Toba. Lokasi kami yang strategis memudahkan diakses melalui berbagai moda transportasi.</p>
-              <p>Sekolah kami berada di Jl. Ompu Batu Tahan Siahaan yang diapit oleh beberapa fasilitas umum termasuk Angkot Balige . Area ini mudah dijangkau dengan transportasi umum atau kendaraan pribadi.</p>
+              <p style="text-align: justify;">
+                Taman Kanak-Kanak Swasta Mutiara Balige terletak di Desa Balige III, Kecamatan Balige,
+                hanya beberapa menit dari Danau Toba, salah satu destinasi wisata terkenal di Indonesia.
+                Lokasi kami yang strategis memudahkan akses melalui berbagai moda transportasi,
+                baik transportasi umum maupun kendaraan pribadi, sehingga memudahkan orang tua dan anak-anak untuk datang ke sekolah.
+                Sekolah kami beralamat di Jl. Ompu Batu Tahan Siahaan, yang dikelilingi oleh berbagai fasilitas umum.
+                Area ini dilayani oleh angkutan kota Balige, yang memastikan kemudahan transportasi bagi siswa dan orang tua.
+                Selain itu, lokasi kami dekat dengan berbagai fasilitas lainnya,
+                seperti pusat perbelanjaan, taman, dan fasilitas kesehatan, yang menambah kenyamanan dan keamanan lingkungan sekitar sekolah.
+            </p>
+            
           </div>
           <div class="col-md-6">
               <!-- Embedded Google Maps Iframe -->

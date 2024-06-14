@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     let valueDisplays = document.querySelectorAll(".num");
-    let interval = 10000;
+    let interval = 2000;
 
     valueDisplays.forEach((valueDisplay) => {
       let startValue = 0;

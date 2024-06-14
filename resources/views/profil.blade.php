@@ -31,7 +31,7 @@
           <div class="col-lg-auto" data-aos="fade-up" data-aos-delay="100">
               <div class="position-relative">
                   <figure>
-                      <img class=" rounded" src="{{ asset('img/picture1.jpg') }}" alt="School Picture" style="object-fit: cover;">
+                      <img class=" rounded" src="{{ asset('img/Picture1.jpg') }}" alt="School Picture" style="object-fit: cover;">
                       <figcaption class="position-absolute bottom-0 start-0 p-2 bg-primary text-white">Risma Siahaan,S.pd </figcaption>
                   </figure>
               </div>
@@ -67,14 +67,16 @@
         <div class="right-side-content">
           <h1 style="font-family: Berlin Sans FB Demi">Visi</h1>
           <ul>
-            <li>Menjadi pusat pendidikan dan pengajaran yang mengembangkan siswa menjadi pribadi yang mandiri, berbudi pekerti, mempunyai keterampilan hidup (life skills), dan rasa cinta terhadap tanah air.</li>
+            <li >Menjadi pusat pendidikan dan pengajaran yang mengembangkan siswa menjadi pribadi yang mandiri, berbudi pekerti, mempunyai keterampilan hidup (life skills), dan rasa cinta terhadap tanah air.</li>
           </ul>
         </div>
+        <br>
+        <br>
         <div class="right-side-content">
         <h1 style="font-family: Berlin Sans FB Demi">Tujuan</h1>
         <ul>
-          <li>Memajukan pendidikan, pengajaran, dan kebudayaan.</li>
-          <li>Membantu Pemerintah dan Masyarakat dalam usaha memajukan dan mengembangkan pendidikan, pengajaran, dan kebudayaan.</li>
+          <li  class="text-muted text-justify">Memajukan pendidikan, pengajaran, dan kebudayaan.</li>
+          <li  class="text-muted text-justify">Membantu Pemerintah dan Masyarakat dalam usaha memajukan dan mengembangkan pendidikan, pengajaran, dan kebudayaan serta rasa cinta terhadap tanah air Indonesia tercinta.</li>
         </ul>
         </div>
       </div>
@@ -82,10 +84,11 @@
         <div class="left-side-content">
           <h1 style="font-family: Berlin Sans FB Demi">Misi</h1>
           <ul>
-            <li>Memberikan pendidikan kepada siswa berlandaskan kurikulum nasional yang lebih disempurnakan sesuai dengan tahap perkembangan dan gaya belajar siswa.</li>
-            <li>Mendasarkan diri pada cinta kasih dalam nilai-nilai kebangsaan.</li>
-            <li>Memberikan suasana positif bagi siswa, agar mereka berkembang menjadi siswa yang cinta Tuhan, cinta Negara, cinta pengetahuan, cinta sesama, mandiri dan ceria.</li>
-            <li>Menjalin kerjasama dengan orang tua/wali sebagai mitra utama dalam upaya memaksimalkan proses tumbuh kembang siswa.</li>
+            <li  class="text-muted text-justify">Memberikan pendidikan kepada siswa berlandaskan kurikulum nasional yang lebih disempurnakan sesuai dengan tahap perkembangan dan gaya belajar siswa.</li>
+            <li class="text-muted text-justify">Mendasarkan diri pada cinta kasih dalam nilai-nilai kebangsaan. Kami menjunjung tinggi nilai-nilai kebangsaan yang dilandasi oleh semangat cinta kasih terhadap tanah air,sesama warga negara.</li>
+            <li  class="text-muted text-justify">Memberikan suasana positif bagi siswa, agar mereka berkembang menjadi siswa yang cinta Tuhan, cinta Negara, cinta pengetahuan, cinta sesama, mandiri dan ceria.</li>
+            <li  class="text-muted text-justify">Menjalin kerjasama dengan orang tua/wali sebagai mitra utama dalam upaya memaksimalkan proses tumbuh kembang siswa.</li>
+            <br>
           </ul>
         </div>
       </div>
@@ -107,7 +110,7 @@
             </div>
             <div class="timeline-content">
               <h4 style="font-family: Berlin Sans FB Demi">Berdiri Tahun 2007</h4>
-              <p>Lembaga Pendidikan Mutiara Balige didirikan pada tahun 2007 dengan dasar hukum berupa Akta Notaris HERMIN SIANIPAR, S.H., yang tercatat dalam Nomor 19 pada tanggal 7 Agustus 2007. Lembaga ini terletak di Jalan Ompu Batu Tahan Siahaan, yang sebelumnya dikenal dengan nama Jalan Dr. I.L. Nommensen, Nomor 25, Kelurahan Balige III, Kecamatan Balige, Kabupaten Toba Samosir, Provinsi Sumatera Utara.</p>
+              <p  class="text-muted text-justify">Lembaga Pendidikan Mutiara Balige didirikan pada tahun 2007 dengan dasar hukum berupa Akta Notaris HERMIN SIANIPAR, S.H., yang tercatat dalam Nomor 19 pada tanggal 7 Agustus 2007. Lembaga ini terletak di Jalan Ompu Batu Tahan Siahaan, yang sebelumnya dikenal dengan nama Jalan Dr. I.L. Nommensen, Nomor 25, Kelurahan Balige III, Kecamatan Balige, Kabupaten Toba Samosir, Provinsi Sumatera Utara.</p>
             </div>
           </div>
           <div class="timeline-item">
@@ -117,7 +120,7 @@
             </div>
             <div class="timeline-content">
               <h4 style="font-family: Berlin Sans FB Demi">Perkembangan dan Adaptasi</h4>
-              <p>Dengan berjalannya waktu, Lembaga Pendidikan Mutiara Balige terus berkembang dan beradaptasi sesuai dengan perkembangan zaman, tetap berpegang teguh pada nilai-nilai dan visi yang telah ditetapkan sejak awal pendiriannya. Komitmen terhadap pendidikan berkualitas diwujudkan melalui peningkatan kurikulum yang selaras dengan standar internasional dan metode pengajaran yang inovatif. Integrasi teknologi dalam pembelajaran, seperti penggunaan smartboard dan pembelajaran jarak jauh, memastikan siswa tetap mendapatkan pendidikan terbaik.</p>
+              <p  class="text-muted text-justify">Dengan berjalannya waktu, Lembaga Pendidikan Mutiara Balige terus berkembang dan beradaptasi sesuai dengan perkembangan zaman, tetap berpegang teguh pada nilai-nilai dan visi yang telah ditetapkan sejak awal pendiriannya. Komitmen terhadap pendidikan berkualitas diwujudkan melalui peningkatan kurikulum yang selaras dengan standar internasional dan metode pengajaran yang inovatif. Integrasi teknologi dalam pembelajaran, seperti penggunaan smartboard dan pembelajaran jarak jauh, memastikan siswa tetap mendapatkan pendidikan terbaik.</p>
             </div>
           </div>
         </div>
